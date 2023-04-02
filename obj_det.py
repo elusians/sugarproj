@@ -33,7 +33,7 @@ def display_image(image):
   fig = plt.figure(figsize=(20, 15))
   plt.grid(False)
   plt.imshow(image)
-  #plt.show()
+ # plt.show()
 
 def download_and_resize_image(url, new_width=256, new_height=256,
                               display=False):
@@ -131,6 +131,7 @@ downloaded_image_path = download_and_resize_image(image_url, 1280, 856, True)
 
 
 module_handle = "https://tfhub.dev/google/faster_rcnn/openimages_v4/inception_resnet_v2/1"
+#module_handle = "https://tfhub.dev/tensorflow/ssd_mobilenet_v2/2"
 
 detector = hub.load(module_handle).signatures['default']
 
@@ -160,3 +161,4 @@ def run_detector(detector, path):
 
 
 run_detector(detector, downloaded_image_path)
+plt.show()
